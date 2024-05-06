@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "db-videogames-query", "db-videogames-query\db-videogames-query.csproj", "{D241B024-50CD-4374-A5BF-C2DC796373DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D241B024-50CD-4374-A5BF-C2DC796373DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D241B024-50CD-4374-A5BF-C2DC796373DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D241B024-50CD-4374-A5BF-C2DC796373DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D241B024-50CD-4374-A5BF-C2DC796373DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9680A59-7F4B-4C89-AF59-F73D065ADACF}
+	EndGlobalSection
+EndGlobal
