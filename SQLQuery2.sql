@@ -169,14 +169,13 @@ WHERE players.name LIKE 'S%';
 SELECT DISTINCT tournaments.city
 FROM tournaments
 JOIN tournament_videogame ON tournaments.id = tournament_videogame.tournament_id
-
 JOIN videogames ON tournament_videogame.videogame_id = videogames.id
 
-JOIN category_videogame ON videogames.id = category_videogame.videogame_id
-JOIN categories ON category_videogame.category_id = categories.id
+JOIN award_videogame ON videogame.id = awordrd_videogame.videogame_id
+JOIN awards ON award_videogame.award_id = awards.id
 
-WHERE tournaments.year = 2018 
-AND categories.name = 'gioco dell%';
+WHERE award_videogame.year = 2018 
+AND awards.name = 'gioco dell '' anno';
 
 
 --9- Selezionare i giocatori che hanno giocato al gioco più atteso del 2018 in un torneo del 2019 (3306)
