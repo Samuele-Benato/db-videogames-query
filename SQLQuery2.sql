@@ -143,32 +143,38 @@ GROUP BY software_houses.id, software_houses.name;
 
 --6- Selezionare categorie e classificazioni PEGI dei videogiochi che hanno ricevuto recensioni
 --da 4 e 5 stelle, mostrandole una sola volta (3363)
-SELECT DISTINCT categories.id AS category_id, pegi_labels.id AS pegi_label_id
-FROM categories
-JOIN category_videogame ON categories.id = category_videogame.category_id
-JOIN videogames ON category_videogame.videogame_id = videogames.id
-JOIN pegi_label_videogame ON pegi_label_videogame.videogame_id = videogames.id
-JOIN pegi_labels ON pegi_label_videogame.pegi_label_id = pegi_labels.id
-JOIN reviews ON reviews.videogame_id = videogames.id
-WHERE reviews.rating IN (4, 5);
+SELECT DISTINCT videogames.name, categories.name, pegi_labels.name
+FROM videogames 
+ JOIN reviews ON videogames.id = reviews.videogame_id
+ JOIN category_videogame ON videogames.id = category_videogame.videogame_id
+ JOIN categories ON category_videogame.category_id = categories.id
+ JOIN pegi_label_videogame ON videogames.id = pegi_label_videogame.videogame_id
+ JOIN pegi_labels ON pegi_label_videogame.pegi_label_id = pegi_labels.id
+WHERE reviews.rating >= 4;
 
 --7- Selezionare quali giochi erano presenti nei tornei nei quali 
 --hanno partecipato i giocatori il cui nome inizia per 'S' (474)
 SELECT DISTINCT videogames.id AS videogame_id, videogames.name AS videogame_name
 FROM videogames
+
 JOIN tournament_videogame ON tournament_videogame.videogame_id = videogames.id
 JOIN tournaments ON tournament_videogame.tournament_id = tournaments.id
+
 JOIN player_tournament ON tournaments.id = player_tournament.tournament_id
 JOIN players ON player_tournament.player_id = players.id
+
 WHERE players.name LIKE 'S%';
 
 --8- Selezionare le città in cui è stato giocato il gioco dell'anno del 2018 (36)
 SELECT DISTINCT tournaments.city
 FROM tournaments
 JOIN tournament_videogame ON tournaments.id = tournament_videogame.tournament_id
+
 JOIN videogames ON tournament_videogame.videogame_id = videogames.id
+
 JOIN category_videogame ON videogames.id = category_videogame.videogame_id
 JOIN categories ON category_videogame.category_id = categories.id
+
 WHERE tournaments.year = 2018 
 AND categories.name = 'gioco dell%';
 
